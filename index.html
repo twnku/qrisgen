@@ -419,13 +419,7 @@
         });
         
         $('#genstkr').click(function(){
-            console.log(true);
-            watermark(['Assets/main/qris.png', 'Assets/main/sampleqr.png'])
-            .image(watermark.image.center(1))
-            .then(function (img) {
-                $('#qris_sticker_img').attr('src', img.src);
-            });
-            //$('#qris_sticker_img').attr('src', "https://twnku.github.io/QRIS/sticker.php?name="+$('#sticker_name').val()+"&nmid="+$('#sticker_nmid').val()+"&ver="+$('#sticker_version').val()+"&img="+$('#sticker_data').val());
+            $('#qris_sticker_img').attr('src', "http://103.175.206.70/~twnkucom/qris/sticker.php?name="+$('#sticker_name').val()+"&nmid="+$('#sticker_nmid').val()+"&ver="+$('#sticker_version').val()+"&img="+$('#sticker_data').val());
         });
         
         $('#generateQris').click(function(){
