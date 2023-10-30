@@ -353,6 +353,7 @@
     <script src="Assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
     <script src="Assets/main/qr-scanner.umd.min.js"></script>
     <script src='Assets/main/autosize.min.js'></script>
+    <script src="Assets/watermark.min.js"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
@@ -418,7 +419,14 @@
         });
         
         $('#genstkr').click(function(){
-            $('#qris_sticker_img').attr('src', "https://twnku.github.io/QRIS/sticker.php?name="+$('#sticker_name').val()+"&nmid="+$('#sticker_nmid').val()+"&ver="+$('#sticker_version').val()+"&img="+$('#sticker_data').val());
+            console.log(true);
+            watermark(['Assets/main/qris.png', 'Assets/main/sampleqr.png'])
+            .image(watermark.image.lowerRight(0.5))
+            .then(function (img) {
+                $('#qris_sticker_img').attr('src', img);
+                console.log(img);
+            });
+            //$('#qris_sticker_img').attr('src', "https://twnku.github.io/QRIS/sticker.php?name="+$('#sticker_name').val()+"&nmid="+$('#sticker_nmid').val()+"&ver="+$('#sticker_version').val()+"&img="+$('#sticker_data').val());
         });
         
         $('#generateQris').click(function(){
