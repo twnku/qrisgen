@@ -573,22 +573,11 @@
             let a2 = subData2Data.substr(4+parseInt(a1)+2, 2);
             nmId = subData2Data.substr(4+parseInt(a1)+4, parseInt(a2));
             
-            $.ajax({
-                type: 'POST',
-                url: 'https://twnku.github.io/QRIS/checksum.php',
-                dataType: "json",
-                data: {
-                    "data": sendData
-                },
-                success: function(data) {
-                    if (data.status == true) {
-                        $('#qris_code_img').attr('src', "https://chart.googleapis.com/chart?cht=qr&chl="+sendData+data.data+"&chs=500x500&choe=UTF-8&chld=L|2%22%20rel=%22nofollow%22%20alt=%22qr%20code%22");
-                        $('#randSkrip').modal('toggle');
-                        $('#qrCode').modal('toggle');
-                        $('#qris_mdl_x').html(sendData+data.data);
-                    } 
-                }
-            });
+            var checksumgen = gencrc16(sendData).toString(16).toUpperCase();
+            $('#qris_code_img').attr('src', "https://chart.googleapis.com/chart?cht=qr&chl="+sendData+checksumgen+"&chs=500x500&choe=UTF-8&chld=L|2%22%20rel=%22nofollow%22%20alt=%22qr%20code%22");
+            $('#randSkrip').modal('toggle');
+            $('#qrCode').modal('toggle');
+            $('#qris_mdl_x').html(sendData+checksumgen);
         });
         
     </script>
