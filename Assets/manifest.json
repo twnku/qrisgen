@@ -1,0 +1,25 @@
+{
+    "short_name": "Twnku",
+    "name": "Twnku.com",
+    "theme_color": "#7367f0",
+    "background_color": "#ffffff",
+    "icons": [
+        {
+            "src": "https://vuexy.cdn.twnku.com/favicon.ico",
+            "sizes": "64x64",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "https://vuexy.cdn.twnku.com/android-chrome-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "maskable"
+        },
+        {
+            "src": "https://vuexy.cdn.twnku.com/android-chrome-512x512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "maskable"
+        }
+    ]
+}
