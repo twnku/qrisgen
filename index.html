@@ -414,6 +414,26 @@
             return crc;
         }
 
+        function parseQRIS(qrisString) {
+            let result = [];
+            let currentIndex = 0;
+
+            while (currentIndex < qrisString.length) {
+                const objectId = qrisString.slice(currentIndex, currentIndex + 2);
+                currentIndex += 2;
+
+                const objectLength = parseInt(qrisString.slice(currentIndex, currentIndex + 2));
+                currentIndex += 2;
+
+                const objectValue = qrisString.slice(currentIndex, currentIndex + objectLength);
+                currentIndex += objectLength;
+
+                result.push({ objectId, objectLength, objectValue });
+            }
+
+            return result;
+        }
+
 
         $(window).on('load', function() {
             if (feather) {
@@ -438,7 +458,60 @@
         $('#generateQris').click(function(){
             if($('#file-qr-result').val().length >= 1){
                 let resVal = $('#file-qr-result').val();
-                let qris_ver_obj = resVal.substr(0, 2);
+                const qrisData = parseQRIS(resVal); 
+                qrisData.forEach(function (arrayItem) {
+                    if(arrayItem.objectId == '00'){
+                        $('#version_length').val(arrayItem.objectLength); 
+                        $('#version_val').val(arrayItem.objectValue);
+                    }
+                    if(arrayItem.objectId == '01'){
+                        if(arrayItem.objectValue == "12"){
+                            $('#qris_types').removeClass('d-none');
+                        }else{
+                            $('#qris_types').addClass('d-none');
+                        }
+                        $('#qristype_length').val(arrayItem.objectLength); 
+                        $('#qristype_val').val(arrayItem.objectValue);
+                    }
+                    if(arrayItem.objectId == '26'){
+                        $('#acquirer_length').val(arrayItem.objectLength); 
+                        $('#acquirer_val').val(arrayItem.objectValue);
+                    }
+                    if(arrayItem.objectId == '51'){
+                        $('#vendor_length').val(arrayItem.objectLength); 
+                        $('#vendor_val').val(arrayItem.objectValue);
+                    }
+                    if(arrayItem.objectId == '52'){
+                        $('#vaid_length').val(arrayItem.objectLength); 
+                        $('#vaid_val').val(arrayItem.objectValue);
+                    }
+                    if(arrayItem.objectId == '53'){
+                        $('#vtp_length').val(arrayItem.objectLength); 
+                        $('#vtp_val').val(arrayItem.objectValue);
+                    }
+                    if(arrayItem.objectId == '54'){
+                        $('#ammount_length').val(arrayItem.objectLength); 
+                        $('#ammount_val').val(arrayItem.objectValue);
+                    }
+                    if(arrayItem.objectId == '58'){
+                        $('#country_length').val(arrayItem.objectLength); 
+                        $('#country_val').val(arrayItem.objectValue);
+                    }
+                    if(arrayItem.objectId == '59'){
+                        $('#name_length').val(arrayItem.objectLength); 
+                        $('#name_val').val(arrayItem.objectValue);
+                    }
+                    if(arrayItem.objectId == '60'){
+                        $('#location_length').val(arrayItem.objectLength); 
+                        $('#location_val').val(arrayItem.objectValue);
+                    }
+                    if(arrayItem.objectId == '61'){
+                        $('#pcode_length').val(arrayItem.objectLength); 
+                        $('#pcode_val').val(arrayItem.objectValue);
+                    }
+                });
+
+                /*let qris_ver_obj = resVal.substr(0, 2);
                 let qris_ver_length = resVal.substr(2, 2);
                 let qris_ver_data = resVal.substr(4, 2);
                 let qris_type_obj = resVal.substr(6, 2);
@@ -468,7 +541,7 @@
                     $('#qris_types').removeClass('d-none');
                 }else{
                     $('#qris_types').addClass('d-none');
-                }
+                }*/
             }
             $('#randSkrip').modal('toggle');
         });
