@@ -477,7 +477,8 @@
             let a1 = subData2Data.substr(2, 2);
             let a2 = subData2Data.substr(4+parseInt(a1)+2, 2);
             nmId = subData2Data.substr(4+parseInt(a1)+4, parseInt(a2));
-            var checksumgen = gencrc16($('#checkSumval').val());
+            var checksumgen = gencrc16($('#checkSumval').val()).toString(16).toUpperCase();
+
             $('#hddncksm').removeClass('d-none');
             $('#qris_code_checksum_img').attr('src', "https://chart.googleapis.com/chart?cht=qr&chl="+$('#checkSumval').val()+checksumgen+"&chs=500x500&choe=UTF-8&chld=L|2%22%20rel=%22nofollow%22%20alt=%22qr%20code%22");
             $('#qris_mdl_z').html($('#checkSumval').val()+checksumgen);
