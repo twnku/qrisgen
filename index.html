@@ -42,7 +42,7 @@
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
-    <link type="text/css" rel="stylesheet" href="Assets/fonts/font-awesome/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="Assets/css/fonts/font-awesome/css/font-awesome.min.css">
     <style>
         /* ===== Scrollbar CSS ===== */
         /* Firefox */
@@ -394,6 +394,20 @@
                 return val;
             }
         }
+
+        function gencrc16(data) {
+            let crc = 0xFFFF;
+
+            for (let i = 0; i < data.length; i++) {
+                let x = ((crc >> 8) ^ data.charCodeAt(i)) & 0xFF;
+                x ^= x >> 4;
+                crc = ((crc << 8) ^ (x << 12) ^ (x << 5) ^ x) & 0xFFFF;
+            }
+
+            return crc;
+        }
+
+
         $(window).on('load', function() {
             if (feather) {
                 feather.replace({
@@ -463,23 +477,10 @@
             let a1 = subData2Data.substr(2, 2);
             let a2 = subData2Data.substr(4+parseInt(a1)+2, 2);
             nmId = subData2Data.substr(4+parseInt(a1)+4, parseInt(a2));
-            $.ajax({
-                type: 'POST',
-                url: 'https://twnku.github.io/QRIS/checksum.php',
-                dataType: "json",
-                data: {
-                    "data": $('#checkSumval').val()
-                },
-                success: function(data) {
-                    if (data.status == true) {
-                        $('#hddncksm').removeClass('d-none');
-                        $('#qris_code_checksum_img').attr('src', "https://chart.googleapis.com/chart?cht=qr&chl="+$('#checkSumval').val()+data.data+"&chs=500x500&choe=UTF-8&chld=L|2%22%20rel=%22nofollow%22%20alt=%22qr%20code%22");
-                        $('#qris_mdl_z').html($('#checkSumval').val()+data.data);
-                    } else {
-                        $('#hddncksm').addClass('d-none');
-                    }
-                }
-            });
+            var checksumgen = gencrc16($('#checkSumval').val());
+            $('#hddncksm').removeClass('d-none');
+            $('#qris_code_checksum_img').attr('src', "https://chart.googleapis.com/chart?cht=qr&chl="+$('#checkSumval').val()+checksumgen+"&chs=500x500&choe=UTF-8&chld=L|2%22%20rel=%22nofollow%22%20alt=%22qr%20code%22");
+            $('#qris_mdl_z').html($('#checkSumval').val()+checksumgen);
         });
         
         $('#gentrsk').click(function(){
