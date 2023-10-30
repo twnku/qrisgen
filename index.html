@@ -460,6 +460,10 @@
                 let resVal = $('#file-qr-result').val();
                 const qrisData = parseQRIS(resVal); 
                 qrisData.forEach(function (arrayItem) {
+                    if(arrayItem.objectLength < 10){
+                        arrayItem.objectLength = "0"+arrayItem.objectLength;
+                    }
+                    
                     if(arrayItem.objectId == '00'){
                         $('#version_length').val(arrayItem.objectLength); 
                         $('#version_val').val(arrayItem.objectValue);
