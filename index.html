@@ -150,7 +150,8 @@
                                 <div class="divider-text fw-bolder text-white" id="wordCount">QRIS QR Code</div>
                             </div>
                         </div>
-                        <img id="qris_code_checksum_img" class="mw-100 mh-300px card-rounded-bottom" alt="" src="https://chart.googleapis.com/chart?cht=qr&chl=0abc&chs=500x500&choe=UTF-8&chld=L|2%22%20rel=%22nofollow%22%20alt=%22qr%20code%22">
+                        <div id="qris_code_checksum_img"></div>
+                        <!--<img id="qris_code_checksum_img" class="mw-100 mh-300px card-rounded-bottom" alt="" src="https://chart.googleapis.com/chart?cht=qr&chl=0abc&chs=500x500&choe=UTF-8&chld=L|2%22%20rel=%22nofollow%22%20alt=%22qr%20code%22">-->
                         <div id="mygenqrdatachecksum" class="d-flex justify-content-between col mt-1 mb-2" tabindex="4">
                             <div class="col-12 d-flex justify-content-start">
                                 <div class="input-group input-group-merge">
@@ -161,7 +162,7 @@
                     </div>
                     
                     <div class="col-12"> 
-                        <span id="gencksm" class="btn w-100" style="background: rgb(255,220,128); background: linear-gradient(51deg, rgba(255,220,128,1) 0%, rgba(252,175,69,1) 8%, rgba(247,119,55,1) 16%, rgba(245,96,64,1) 28%, rgba(253,29,29,1) 44%, rgba(225,48,108,1) 61%, rgba(193,53,132,1) 75%, rgba(131,58,180,1) 88%, rgba(91,81,216,1) 99%); box-shadow: inset 0 -3px 0 0 rgb(34 41 47 / 20%); color: #FFF; -webkit-transition: all .2s ease; transition: all .2s ease; border: 0px solid transparent;" tabindex="4">Generate</span>
+                        <span id="gencksm" class="btn w-100" style="background-color: #4267B2; box-shadow: inset 0 -3px 0 0 rgb(34 41 47 / 20%); color: #FFF; -webkit-transition: all .2s ease; transition: all .2s ease; border: 0px solid transparent;" tabindex="4">Generate</span>
                     </div>
                 </div>
             </div>
@@ -203,7 +204,7 @@
                         </div>
                     </div>
                     <div class="col-12"> 
-                        <span id="genstkr" class="btn w-100" style="background: rgb(255,220,128); background: linear-gradient(51deg, rgba(255,220,128,1) 0%, rgba(252,175,69,1) 8%, rgba(247,119,55,1) 16%, rgba(245,96,64,1) 28%, rgba(253,29,29,1) 44%, rgba(225,48,108,1) 61%, rgba(193,53,132,1) 75%, rgba(131,58,180,1) 88%, rgba(91,81,216,1) 99%); box-shadow: inset 0 -3px 0 0 rgb(34 41 47 / 20%); color: #FFF; -webkit-transition: all .2s ease; transition: all .2s ease; border: 0px solid transparent;" tabindex="4">Generate</span>
+                        <span id="genstkr" class="btn w-100" style="background-color: #4267B2; box-shadow: inset 0 -3px 0 0 rgb(34 41 47 / 20%); color: #FFF; -webkit-transition: all .2s ease; transition: all .2s ease; border: 0px solid transparent;" tabindex="4">Generate</span>
                     </div>
                 </div>
             </div>
@@ -218,7 +219,8 @@
                             <div class="divider-text fw-bolder text-white" id="wordCount">QRIS QR Code</div>
                         </div>
                     </div>
-                    <img id="qris_code_img" class="mw-100 mh-300px card-rounded-bottom" alt="" src="https://chart.googleapis.com/chart?cht=qr&chl=0abc&chs=500x500&choe=UTF-8&chld=L|2%22%20rel=%22nofollow%22%20alt=%22qr%20code%22">
+                    <div id="qris_code_img"></div>
+                    <!--<img id="qris_code_img" class="mw-100 mh-300px card-rounded-bottom" alt="" src="https://chart.googleapis.com/chart?cht=qr&chl=0abc&chs=500x500&choe=UTF-8&chld=L|2%22%20rel=%22nofollow%22%20alt=%22qr%20code%22">-->
                     <div id="mygenqrdata" class="d-flex justify-content-between col mt-1 mb-2" tabindex="4">
                         <div class="col-12 d-flex justify-content-start">
                             <div class="input-group input-group-merge">
@@ -326,7 +328,7 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <span id="gentrsk" class="btn w-100" style="background: rgb(255,220,128); background: linear-gradient(51deg, rgba(255,220,128,1) 0%, rgba(252,175,69,1) 8%, rgba(247,119,55,1) 16%, rgba(245,96,64,1) 28%, rgba(253,29,29,1) 44%, rgba(225,48,108,1) 61%, rgba(193,53,132,1) 75%, rgba(131,58,180,1) 88%, rgba(91,81,216,1) 99%); box-shadow: inset 0 -3px 0 0 rgb(34 41 47 / 20%); color: #FFF; -webkit-transition: all .2s ease; transition: all .2s ease; border: 0px solid transparent;" tabindex="4">Generate</span>
+                        <span id="gentrsk" class="btn w-100" style="background-color: #4267B2; box-shadow: inset 0 -3px 0 0 rgb(34 41 47 / 20%); color: #FFF; -webkit-transition: all .2s ease; transition: all .2s ease; border: 0px solid transparent;" tabindex="4">Generate</span>
                     </div>
                 </div>
             </div>
@@ -353,7 +355,7 @@
     <script src="Assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
     <script src="Assets/main/qr-scanner.umd.min.js"></script>
     <script src='Assets/main/autosize.min.js'></script>
-
+    <script src='Assets/main/qrcode.min.js'></script>
     <!--
         TODO: Watermarking only using javascript? 
         tried https://github.com/brianium/watermarkjs but not working as expected
@@ -394,6 +396,39 @@
     <script>
         var sendData = "";
         var nmId = "";
+        var qrcode1 = new QRCode("qris_code_img", {
+            text: "Sample",
+            width: 700,
+            height: 700,
+            colorDark : "#4267B2",
+            colorLight : "rgba(255,255,255,0)",
+            correctLevel : QRCode.CorrectLevel.M
+        });
+        var qrcode2 = new QRCode("qris_code_checksum_img", {
+            text: "Sample",
+            width: 700,
+            height: 700,
+            colorDark : "#4267B2",
+            colorLight : "rgba(255,255,255,0)",
+            correctLevel : QRCode.CorrectLevel.M
+        });
+
+        function makeQRCode1 (val) {	
+            if (!val) {
+                return;
+            }
+            
+            qrcode1.makeCode(val);
+        }
+
+        function makeQRCode2 (val) {	
+            if (!val) {
+                return;
+            }
+            
+            qrcode2.makeCode(val);
+        }
+
         function countVal(val){
             if(val <= 9){
                 return "0"+val;
@@ -434,6 +469,22 @@
             return result;
         }
 
+        function blobToBase64(blob) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+
+                reader.onload = () => {
+                const base64Data = reader.result.split(',')[1];
+                resolve(base64Data);
+                };
+
+                reader.onerror = (error) => {
+                reject(error);
+                };
+
+                reader.readAsDataURL(blob);
+            });
+        }
 
         $(window).on('load', function() {
             if (feather) {
@@ -444,8 +495,23 @@
             }
         });
         
-        $('#genstkr').click(function(){
-            $('#qris_sticker_img').attr('src', "https://103.175.206.70/~twnkucom/qris/sticker.php?name="+$('#sticker_name').val()+"&nmid="+$('#sticker_nmid').val()+"&ver="+$('#sticker_version').val()+"&img="+$('#sticker_data').val());
+        $('#genstkr').click(async function(){
+            const imageUrl = 'Assets/main/qris.png';
+
+            try {
+                const response = await fetch(imageUrl);
+                const blob = await response.blob();
+                const base64Data = await blobToBase64(blob);
+
+                console.log('Base64 PNG data:', base64Data);
+
+                // You can use the base64Data as needed, for example, send it to a server or display it on the page.
+            } catch (error) {
+                console.error('Error loading or converting image:', error);
+            }
+
+
+            //$('#qris_sticker_img').attr('src', "https://103.175.206.70/~twnkucom/qris/sticker.php?name="+$('#sticker_name').val()+"&nmid="+$('#sticker_nmid').val()+"&ver="+$('#sticker_version').val()+"&img="+$('#sticker_data').val());
             /*
             TODO: Bikin Sticker QRIS tanpa PHP karna github pages ga support PHP
             Merchant Name: $('#sticker_name').val()
@@ -514,38 +580,6 @@
                         $('#pcode_val').val(arrayItem.objectValue);
                     }
                 });
-
-                /*let qris_ver_obj = resVal.substr(0, 2);
-                let qris_ver_length = resVal.substr(2, 2);
-                let qris_ver_data = resVal.substr(4, 2);
-                let qris_type_obj = resVal.substr(6, 2);
-                let qris_type_length = resVal.substr(8, 2);
-                let qris_type_data = resVal.substr(10, 2);
-                let subData1 = resVal.substr(12, 2);
-                let subData1Length = parseInt(resVal.substr(14, 2));
-                let subData1Data = resVal.substr(16, subData1Length);
-                let subData2 = resVal.substr(14+subData1Length+2, 2);
-                let subData2Length =  parseInt(resVal.substr(14+subData1Length+4, 2));
-                let subData2Data = resVal.substr(14+subData1Length+6, subData2Length);
-                
-                let a1 = subData2Data.substr(2, 2);
-                let a2 = subData2Data.substr(4+parseInt(a1)+2, 2);
-                nmId = subData2Data.substr(4+parseInt(a1)+4, parseInt(a2));
-                
-                $('#version_length').val(qris_ver_length); 
-                $('#version_val').val(qris_ver_data);
-                $('#qristype_length').val(qris_type_length);
-                $('#qristype_val').val(qris_type_data);
-                $('#acquirer_length').val(subData1Length);
-                $('#acquirer_val').val(subData1Data);
-                $('#vendor_length').val(subData2Length);
-                $('#vendor_val').val(subData2Data);
-                
-                if(qris_type_data == "12"){
-                    $('#qris_types').removeClass('d-none');
-                }else{
-                    $('#qris_types').addClass('d-none');
-                }*/
             }
             $('#randSkrip').modal('toggle');
         });
@@ -571,7 +605,8 @@
             var checksumgen = gencrc16($('#checkSumval').val()).toString(16).toUpperCase();
 
             $('#hddncksm').removeClass('d-none');
-            $('#qris_code_checksum_img').attr('src', "https://chart.googleapis.com/chart?cht=qr&chl="+$('#checkSumval').val()+checksumgen+"&chs=500x500&choe=UTF-8&chld=L|2%22%20rel=%22nofollow%22%20alt=%22qr%20code%22");
+            makeQRCode2($('#checkSumval').val()+checksumgen);
+            //$('#qris_code_checksum_img').attr('src', "https://chart.googleapis.com/chart?cht=qr&chl="+$('#checkSumval').val()+checksumgen+"&chs=500x500&choe=UTF-8&chld=L|2%22%20rel=%22nofollow%22%20alt=%22qr%20code%22");
             $('#qris_mdl_z').html($('#checkSumval').val()+checksumgen);
         });
         
@@ -665,7 +700,8 @@
             nmId = subData2Data.substr(4+parseInt(a1)+4, parseInt(a2));
             
             var checksumgen = gencrc16(sendData).toString(16).toUpperCase();
-            $('#qris_code_img').attr('src', "https://chart.googleapis.com/chart?cht=qr&chl="+sendData+checksumgen+"&chs=500x500&choe=UTF-8&chld=L|2%22%20rel=%22nofollow%22%20alt=%22qr%20code%22");
+            makeQRCode1(sendData+checksumgen);
+            //$('#qris_code_img').attr('src', "https://chart.googleapis.com/chart?cht=qr&chl="+sendData+checksumgen+"&chs=500x500&choe=UTF-8&chld=L|2%22%20rel=%22nofollow%22%20alt=%22qr%20code%22");
             $('#randSkrip').modal('toggle');
             $('#qrCode').modal('toggle');
             $('#qris_mdl_x').html(sendData+checksumgen);
