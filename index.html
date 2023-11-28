@@ -177,7 +177,7 @@
                             <div class="divider-text fw-bolder text-white" id="wordCount">QRIS Sticker</div>
                         </div> 
                     </div>
-                    <canvas id="qris_sticker_img" width="1260" height="1785" style="display: block;"></canvas>
+                    <canvas id="qris_sticker_img" width="1260" height="1785" class="d-none"></canvas>
                     <img id="myimage" class="mw-100 mh-300px card-rounded-bottom" alt="Sticker">
                     <!--<img id="qris_sticker_img" class="mw-100 mh-300px card-rounded-bottom" alt="" src="https://twnku.com/qris/sticker?ver=A01&name=Twnku.com&nmid=ID1022221037289&img=00020101021126570011ID.DANA.WWW011893600915334064516602093406451660303UKE51440014ID.CO.QRIS.WWW0215ID10222210372890303UKE5204504553033605802ID5905Twnku6011Kab.%20Bekasi610517610630463A9">-->
                     <div class="col-12 pt-1 mb-1">
@@ -537,6 +537,50 @@
                         var y = ((canvas.height - resizedHeight) / 2) - 25;
 
                         context.drawImage(image2, x, y, resizedWidth, resizedHeight);
+
+                        // Load custom font
+                        var customFont = new FontFace('ArialCEMTBlack', 'url(Assets/main/ArialCEMTBlack.ttf)');
+                        var customFont2 = new FontFace('ArialBold', 'url(Assets/main/ArialBold.ttf');
+                        customFont.load().then(function(loadedFont) {
+                            document.fonts.add(loadedFont);
+
+                            // Set text properties
+                            context.font = '30px ArialCEMTBlack';
+                            context.fillStyle = '#313131';
+                            context.globalAlpha = 1.0; // Opacity (1.0 means 100%)
+
+                            // Draw text in the center of the canvas
+                            var text = $('#sticker_name').val();
+                            var textWidth = context.measureText(text).width;
+                            var textX = (canvas.width - textWidth) / 2;
+                            var textY = ((canvas.height - resizedHeight) / 2) - 225; // Adjust vertically as needed
+
+                            context.fillText(text, textX, textY);
+                        });
+
+                        customFont2.load().then(function(loadedFont) {
+                            document.fonts.add(loadedFont);
+
+                            // Set text properties
+                            context.font = '30px ArialBold';
+                            context.fillStyle = '#313131';
+                            context.globalAlpha = 1.0; // Opacity (1.0 means 100%)
+
+                            // Draw text in the center of the canvas
+                            var text2 = $('#sticker_nmid').val();
+                            var textWidth2 = context.measureText(text2).width;
+                            var textX2 = (canvas.width - textWidth2) / 2;
+                            var textY2 = ((canvas.height - resizedHeight) / 2) - 180; // Adjust vertically as needed
+
+                            var text3 = $('#sticker_version').val();
+                            var textWidth3 = context.measureText(text3).width;
+                            var textX3 = (canvas.width - textWidth3) / 2;
+                            var textY3 = ((canvas.height - resizedHeight) / 2) - 140; // Adjust vertically as needed
+
+                            context.fillText(text2, textX2, textY2);
+                            context.fillText(text3, textX3, textY3);
+                        });
+
 
                         // Convert the canvas content to base64
                         var canvasData = canvas.toDataURL("image/png");
