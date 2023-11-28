@@ -45,7 +45,6 @@
 
                 // Load custom font
                 var customFont = new FontFace('ArialCEMTBlack', 'url(Assets/main/ArialCEMTBlack.ttf)');
-                var customFont2 = new FontFace('ArialBold', 'url(Assets/main/ArialBold.ttf');
 
                 customFont.load().then(function(loadedFont) {
                     document.fonts.add(loadedFont);
@@ -62,15 +61,6 @@
                     var textY = ((canvas.height - resizedHeight) / 2) - 225; // Adjust vertically as needed
 
                     context.fillText(text, textX, textY);
-                });
-
-                customFont2.load().then(function(loadedFont) {
-                    document.fonts.add(loadedFont);
-
-                    // Set text properties
-                    context.font = '30px ArialBold';
-                    context.fillStyle = '#313131';
-                    context.globalAlpha = 1.0; // Opacity (1.0 means 100%)
 
                     // Draw text in the center of the canvas
                     var text2 = 'NMID';
@@ -86,6 +76,7 @@
                     context.fillText(text2, textX2, textY2);
                     context.fillText(text3, textX3, textY3);
                 });
+
 
                 // Convert the canvas content to base64
                 var canvasData = canvas.toDataURL("image/png");

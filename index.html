@@ -557,7 +557,6 @@
 
                         // Load custom font
                         var customFont = new FontFace('ArialCEMTBlack', 'url(Assets/main/ArialCEMTBlack.ttf)');
-                        var customFont2 = new FontFace('ArialBold', 'url(Assets/main/ArialBold.ttf');
                         customFont.load().then(function(loadedFont) {
                             document.fonts.add(loadedFont);
 
@@ -567,29 +566,20 @@
                             context.globalAlpha = 1.0; // Opacity (1.0 means 100%)
 
                             // Draw text in the center of the canvas
-                            var text = $('#sticker_name').val();
+                            var text = 'Merchant Name';
                             var textWidth = context.measureText(text).width;
                             var textX = (canvas.width - textWidth) / 2;
                             var textY = ((canvas.height - resizedHeight) / 2) - 225; // Adjust vertically as needed
 
                             context.fillText(text, textX, textY);
-                        });
-
-                        customFont2.load().then(function(loadedFont) {
-                            document.fonts.add(loadedFont);
-
-                            // Set text properties
-                            context.font = '30px ArialBold';
-                            context.fillStyle = '#313131';
-                            context.globalAlpha = 1.0; // Opacity (1.0 means 100%)
 
                             // Draw text in the center of the canvas
-                            var text2 = $('#sticker_nmid').val();
+                            var text2 = 'NMID';
                             var textWidth2 = context.measureText(text2).width;
                             var textX2 = (canvas.width - textWidth2) / 2;
                             var textY2 = ((canvas.height - resizedHeight) / 2) - 180; // Adjust vertically as needed
 
-                            var text3 = $('#sticker_version').val();
+                            var text3 = 'NMID';
                             var textWidth3 = context.measureText(text3).width;
                             var textX3 = (canvas.width - textWidth3) / 2;
                             var textY3 = ((canvas.height - resizedHeight) / 2) - 140; // Adjust vertically as needed
@@ -599,12 +589,12 @@
                         });
 
 
+                        $('#myimage').removeClass('d-none');
                         // Convert the canvas content to base64
                         var canvasData = canvas.toDataURL("image/png");
-
                         // Set the base64 data as the source of the img element
                         document.getElementById("myimage").src = canvasData;
-                        $('#myimage').removeClass('d-none');
+                        
                     };
                 };
 
